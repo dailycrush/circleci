@@ -2,16 +2,16 @@
 version: 2.1
 
 jobs:
-  hello:
-    machine: true
+  test:
+    docker:
+      - image: python:3.6
     steps:
-      - checkout
-      - run: uname -a
-      - run: ps
-      - run: ls
-      - run: "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Hello, Kyungim!\"}' ${SLACK_API_URL}"
+      - steps:
+         - checkout
+         - run: pip install flask pytest
+         - run: py.test
 
 workflows:
   welcome:
     jobs:
-      - hello
+      - test
