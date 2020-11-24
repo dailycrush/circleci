@@ -5,9 +5,7 @@ jobs:
   hello:
     machine: true
     steps:
-      - run: echo "Hello, world!"
-      - run: echo 'This is message in CircleCI worker'
-      - run: pwd
+      - checkout
       - run: uname -a
       - run: ps
       - run: ls
