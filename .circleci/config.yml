@@ -2,7 +2,7 @@
 version: 2.1
 
 jobs:
-  test:
+  test1:
     docker:
       - image: python:3.6
     steps:
@@ -15,8 +15,25 @@ jobs:
       - store_artifacts:
          path: /tmp/hello-latest.zip
          destination: hello-latest.zip
-
+  test2:
+    docker:
+      - image: python:3.2
+    steps:
+      - checkout
+      - run: pip install flask pytest
+      - run: py.test
+  # test1과 test2가 성공하면 slack_notify를 실행한다
+  slack_notify:
+    machine: true
+    steps:
+      - run: "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Hello, <Nickname>!\"}' https://hooks.slack.com/services/T01FCLYDL02/B01F9JQ7VUM/eme
+SnzqFNRPtk6ZYLpv7IlpW"
 workflows:
   welcome:
     jobs:
-      - test
+      - test1
+      - test2
+      - slack_notify:
+        requires:
+          - test1
+          - test2
