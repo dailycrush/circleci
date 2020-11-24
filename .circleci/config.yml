@@ -11,6 +11,7 @@ jobs:
       - run: uname -a
       - run: ps
       - run: ls
+      - run: "curl -X POST -H 'Content--type: application/json' --data '{\"text\":\"Hello, Kyungim!\"}' https://hooks.slack.com/services/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"
 
 workflows:
   welcome:
