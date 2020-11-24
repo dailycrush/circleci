@@ -11,7 +11,7 @@ jobs:
       - run: apt update
       - run: apt install zip
       - run: py.test
-      - run: zip /tmp/hello-latest.zip *.py
+      - run: zip /tmp/hello-latest.zip ./lesson08/*.py
       - store_artifacts:
          path: /tmp/hello-latest.zip
          destination: hello-latest.zip
