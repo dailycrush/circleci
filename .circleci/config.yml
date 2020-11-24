@@ -6,10 +6,9 @@ jobs:
     docker:
       - image: python:3.6
     steps:
-      - steps:
-         - checkout
-         - run: pip install flask pytest
-         - run: py.test
+      - checkout
+      - run: pip install flask pytest
+      - run: py.test
 
 workflows:
   welcome:
