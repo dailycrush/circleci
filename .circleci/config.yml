@@ -5,7 +5,7 @@ jobs:
   hello:
     machine: true
     steps:
-      - fun: echo "Hello, world!"
+      - run: echo "Hello, world!"
 
 workflows:
   welcome:
