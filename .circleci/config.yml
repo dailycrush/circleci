@@ -8,6 +8,7 @@ jobs:
     steps:
       - checkout
       - run: pip install flask pytest
+      - run: apt update
       - run: apt install zip
       - run: py.test
       - run: zip /tmp/hello-latest.zip *.py
