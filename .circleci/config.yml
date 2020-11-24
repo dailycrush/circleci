@@ -11,8 +11,8 @@ jobs:
       - run: py.test
       - run: zip /tmp/hello-latest.zip *.py
       - store_artifacts:
-        path: /tmp/hello-latest.zip
-        destination: hello-latest.zip
+         path: /tmp/hello-latest.zip
+         destination: hello-latest.zip
 
 workflows:
   welcome:
