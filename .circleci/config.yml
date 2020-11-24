@@ -34,6 +34,6 @@ workflows:
       - test1
       - test2
       - slack_notify:
-        requires:
-          - test1
-          - test2
+         requires:
+           - test1
+           - test2
