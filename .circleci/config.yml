@@ -17,7 +17,7 @@ jobs:
          destination: hello-latest.zip
   test2:
     docker:
-      - image: python:3.2
+      - image: python:3.5
     steps:
       - checkout
       - run: pip install flask pytest
